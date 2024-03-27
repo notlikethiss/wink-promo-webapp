@@ -101,7 +101,7 @@ const MediaID: FC = () => {
 export default MediaID;
 
 const Wrapper = styled.section`
-  padding: 10px;
+  padding: 10px 10px 50px 10px;
   display: flex;
   flex-direction: column;
 `;
