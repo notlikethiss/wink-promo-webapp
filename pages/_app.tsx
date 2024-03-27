@@ -18,27 +18,8 @@ export default function App({ Component, pageProps }: AppProps) {
   const pathname = usePathname();
 
   useEffect(() => {
-    const tg = window?.Telegram?.WebApp;
-    if (tg) {
-      tg.ready();
-      tg.expand();
-      tg.enableClosingConfirmation();
-      tg.setBackgroundColor("#1b1b1b");
-    }
-  }, []);
-
-  useEffect(() => {
-    const tg = window?.Telegram?.WebApp;
-
-    const backButton = tg?.BackButton;
-    const excludedPaths: string[] = ["/"];
-
-    if (excludedPaths.includes(pathname)) {
-      backButton?.hide();
-    } else {
-      backButton?.onClick(() => push("/"));
-      backButton?.show();
-    }
+    TelegramProvider.initializeApp();
+    TelegramProvider.updateButton(pathname, push);
   }, [pathname, push]);
 
   return <Component {...pageProps} />;
