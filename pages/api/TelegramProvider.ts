@@ -12,7 +12,7 @@ export const TelegramProvider = {
     const tg = window?.Telegram?.WebApp;
 
     const backButton = tg?.BackButton;
-    const excludedPaths: string[] = ["/", "/?loaded=loaded"];
+    const excludedPaths: string[] = ["/"];
 
     if (excludedPaths.includes(pathname)) {
       backButton?.hide();

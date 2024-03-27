@@ -14,12 +14,32 @@ declare global {
 }
 
 export default function App({ Component, pageProps }: AppProps) {
-  const { asPath, push } = useRouter();
+  const { push } = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
-    TelegramProvider.initializeApp();
-    TelegramProvider.updateButton(asPath, push);
-  }, [asPath, push]);
+    const tg = window?.Telegram?.WebApp;
+    if (tg) {
+      tg.ready();
+      tg.expand();
+      tg.enableClosingConfirmation();
+      tg.setBackgroundColor("#1b1b1b");
+    }
+  }, []);
+
+  useEffect(() => {
+    const tg = window?.Telegram?.WebApp;
+
+    const backButton = tg?.BackButton;
+    const excludedPaths: string[] = ["/"];
+
+    if (excludedPaths.includes(pathname)) {
+      backButton?.hide();
+    } else {
+      backButton?.onClick(() => push("/"));
+      backButton?.show();
+    }
+  }, [pathname, push]);
 
   return <Component {...pageProps} />;
 }
