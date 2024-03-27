@@ -15,18 +15,44 @@ const MediaID: FC = () => {
 
   return (
     <Wrapper className={montserrat.className}>
-      <Row>
-        <Cover $img={trailer.cover} />
-        <Column>
-          <Title>{trailer.title}</Title>
-          <Info>
-            {trailer.year}, {trailer.tags}
-          </Info>
-          <Description>{trailer.description}</Description>
-        </Column>
-      </Row>
-      <Title>Смотреть трейлер</Title>
-      <Video controls src={trailer.src}></Video>
+      {trailer ? (
+        <>
+          <Row>
+            <Cover>
+              <Image
+                src={trailer.cover}
+                alt="trailer-cover"
+                width={180}
+                height={180}
+              />
+            </Cover>
+            <Column>
+              <Title>{trailer.title}</Title>
+              <Info>
+                {trailer.year}, {trailer.tags}
+              </Info>
+              <Description>{trailer.description}</Description>
+            </Column>
+          </Row>
+          <Title>Смотреть трейлер</Title>
+          <Video controls src={trailer.src}></Video>
+        </>
+      ) : (
+        <>
+          <Row>
+            <Fallback $width="180px" $height="180px" />
+            <Column>
+              <Fallback $width="220px" $height="25px" />
+              <Info>
+                <Fallback $width="220px" $height="25px" />
+              </Info>
+              <Fallback $width="220px" $height="25px" />
+            </Column>
+          </Row>
+          <Title>Смотреть трейлер</Title>
+          <Fallback $width="400px" $height="320px" />
+        </>
+      )}
     </Wrapper>
   );
 };
@@ -51,16 +77,25 @@ const Video = styled.video`
   border-radius: 10px;
 `;
 
-const Cover = styled.div<{ $img: string }>`
-  margin-top: 16px;
+const Cover = styled.div`
   min-width: 180px;
   min-height: 180px;
+  width: 180px;
+  height: 180px;
   max-width: 180px;
   max-height: 180px;
   border-radius: 15px;
-  background-image: ${(props) => `url(${props.$img})`};
-  background-size: cover;
-  background-position: center;
+  box-shadow: 0 11px 14px #00000045;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9;
+
+  img {
+    width: 100%;
+    height: max-content;
+  }
 `;
 
 const Row = styled.div`
@@ -86,4 +121,28 @@ const Description = styled.p`
   font-size: 14px;
   font-weight: 500;
   color: #a8a8a8;
+`;
+
+const Fallback = styled.div<{ $width: string; $height: string }>`
+  background: #a8a8a8;
+  border-radius: 15px;
+  width: ${(props) => props.$width};
+  height: ${(props) => props.$height};
+  margin: 4px;
+
+  @keyframes Animation {
+    0% {
+      background: #a8a8a8;
+    }
+
+    50% {
+      background: #c0c0c0;
+    }
+
+    100% {
+      background: #a8a8a8;
+    }
+  }
+
+  animation: Animation 1s infinite;
 `;
