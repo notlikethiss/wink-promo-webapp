@@ -109,7 +109,7 @@ const Gradient = styled.div<{ $deg: string; $top: string }>`
   z-index: 10;
   top: ${(props) => props.$top};
   background: ${(props) =>
-    `linear-gradient(${props.$deg}, rgb(16, 16, 16), rgba(200, 200, 200, 0));`};
+    `linear-gradient(${props.$deg}, rgb(27, 27, 27), rgba(200, 200, 200, 0));`};
 `;
 
 const Button = styled.button`

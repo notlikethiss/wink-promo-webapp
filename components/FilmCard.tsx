@@ -42,7 +42,7 @@ const Cover = styled.div`
   box-shadow: 0 11px 14px #00000045;
   overflow: hidden;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   z-index: 9;
   background-color: #a8a8a8;
