@@ -4,4 +4,6 @@ export interface IFilm {
   tags: string | string[];
   year: number;
   src: string;
+  description: string;
+  id: string;
 }
