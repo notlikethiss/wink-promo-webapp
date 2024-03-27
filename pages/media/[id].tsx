@@ -233,4 +233,8 @@ const MediaGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
+
+  @media only screen and (max-width: 530px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
