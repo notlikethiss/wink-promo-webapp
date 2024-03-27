@@ -75,6 +75,7 @@ const Title = styled.h1`
 const Video = styled.video`
   margin-top: 16px;
   border-radius: 10px;
+  background-color: #000;
 `;
 
 const Cover = styled.div`
