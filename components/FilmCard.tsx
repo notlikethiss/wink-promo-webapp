@@ -45,6 +45,7 @@ const Cover = styled.div`
   align-items: center;
   justify-content: center;
   z-index: 9;
+  background-color: #a8a8a8;
 `;
 
 const Title = styled.h1`

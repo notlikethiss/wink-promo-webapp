@@ -78,6 +78,7 @@ const Video = styled.video`
 `;
 
 const Cover = styled.div`
+  margin-top: 16px;
   min-width: 180px;
   min-height: 180px;
   width: 180px;
@@ -91,6 +92,7 @@ const Cover = styled.div`
   align-items: center;
   justify-content: center;
   z-index: 9;
+  background-color: #a8a8a8;
 
   img {
     width: 100%;

@@ -78,6 +78,7 @@ const Exclusive = styled.p`
   font-weight: 300;
   color: #fff;
   z-index: 10;
+  filter: drop-shadow(2px 4px 6px black);
 `;
 
 const MainImage = styled.div`
@@ -97,6 +98,7 @@ const MainImage = styled.div`
 
   .wink-wame-logo {
     margin-top: 20px;
+    filter: drop-shadow(2px 4px 6px black);
   }
 `;
 
@@ -107,7 +109,7 @@ const Gradient = styled.div<{ $deg: string; $top: string }>`
   z-index: 10;
   top: ${(props) => props.$top};
   background: ${(props) =>
-    `linear-gradient(${props.$deg}, rgb(43, 43, 43), rgba(200, 200, 200, 0));`};
+    `linear-gradient(${props.$deg}, rgb(16, 16, 16), rgba(200, 200, 200, 0));`};
 `;
 
 const Button = styled.button`
@@ -127,6 +129,7 @@ const Button = styled.button`
   width: 300px;
   height: 40px;
   top: 340px;
+  box-shadow: 0 0px 20px #9f6bc966;
 `;
 
 const Title = styled.h1`
@@ -136,13 +139,15 @@ const Title = styled.h1`
   font-weight: 600;
   color: #fff;
   z-index: 11;
+  filter: drop-shadow(2px 4px 6px black);
 `;
 
 const Info = styled.p`
   position: absolute;
   top: 285px;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   color: #c0c0c0;
   z-index: 11;
+  filter: drop-shadow(2px 4px 6px black);
 `;
