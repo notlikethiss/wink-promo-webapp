@@ -193,6 +193,7 @@ const Fallback = styled.div<{ $width: string; $height: string }>`
 `;
 
 const Placeholder = styled.div`
+  margin-top: 16px;
   width: 96vw;
   height: 303px;
   display: flex;
@@ -231,10 +232,11 @@ const Button = styled.button`
 const MediaGrid = styled.div`
   margin-top: 20px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-around;
+  grid-template-columns: repeat(3, 160px);
   gap: 16px;
 
   @media only screen and (max-width: 530px) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 160px);
   }
 `;

@@ -50,14 +50,14 @@ const Cover = styled.div`
 
 const Title = styled.h1`
   margin-top: 5px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   color: #fff;
 `;
 
 const Info = styled.p`
   margin-top: 2px;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 500;
   color: #a8a8a8;
 `;
