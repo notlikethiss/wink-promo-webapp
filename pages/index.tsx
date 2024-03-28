@@ -5,14 +5,20 @@ import { data } from "./api/data";
 import FilmCard from "@/components/FilmCard";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 export default function Home() {
+  const [loaded, setLoaded] = useState<boolean>(false);
   const { push } = useRouter();
 
+  useEffect(() => {
+    setTimeout(() => setLoaded(true), 300);
+  }, []);
+
   return (
-    <Wrapper className={montserrat.className}>
+    <Wrapper className={montserrat.className} $loaded={loaded}>
       <MainImage>
         <Gradient $top="0" $deg="180deg" />
         <Image
@@ -58,11 +64,13 @@ export default function Home() {
   );
 }
 
-const Wrapper = styled.main`
+const Wrapper = styled.main<{ $loaded: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 0 10px 50px 10px;
+  opacity: ${(props) => (props.$loaded ? "1" : "0")};
+  transition: all 0.3s ease-in-out;
 `;
 
 const MediaGrid = styled.div`
