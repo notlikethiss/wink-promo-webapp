@@ -71,6 +71,11 @@ const Wrapper = styled.main<{ $loaded: boolean }>`
   padding: 0 10px 50px 10px;
   opacity: ${(props) => (props.$loaded ? "1" : "0")};
   transition: all 0.3s ease-in-out;
+
+  @media screen and (min-width: 500px) {
+    justify-content: center;
+    width: 500px;
+  }
 `;
 
 const MediaGrid = styled.div`
@@ -95,6 +100,14 @@ const MainImage = styled.div`
   align-items: center;
   overflow: hidden;
   height: 400px;
+
+  @media screen and (min-width: 500px) {
+    width: 500px;
+
+    .cover {
+      width: max-content !important;
+    }
+  }
 
   .cover {
     z-index: 9;

@@ -1,7 +1,7 @@
 import { useState, type FC, useEffect } from "react";
 import { data } from "../api/data";
 import { useRouter } from "next/router";
-import { IFilm } from "@/interfaces";
+import { Movie } from "@/interfaces";
 import { Montserrat } from "next/font/google";
 import styled from "styled-components";
 import Image from "next/image";
@@ -15,7 +15,7 @@ const MediaID: FC = () => {
   const [loaded, setLoaded] = useState<boolean>(false);
   const { query } = useRouter();
 
-  const trailer = data.find((media) => media.id === query.id) as IFilm;
+  const trailer = data.find((media) => media.id === query.id) as Movie;
 
   useEffect(() => {
     const video = document.getElementById("player") as HTMLVideoElement;
@@ -117,6 +117,14 @@ const Wrapper = styled.section<{ $loaded: boolean }>`
   flex-direction: column;
   opacity: ${(props) => (props.$loaded ? "1" : "0")};
   transition: all 0.3s ease-in-out;
+
+  @media screen and (min-width: 500px) {
+    width: 500px;
+
+    .cover {
+      width: max-content !important;
+    }
+  }
 `;
 
 const Title = styled.h1`
@@ -179,6 +187,10 @@ const Placeholder = styled.div`
   overflow: hidden;
   border-radius: 10px;
   z-index: 10;
+
+  @media screen and (min-width: 500px) {
+    width: 500px;
+  }
 
   img {
     width: 100%;

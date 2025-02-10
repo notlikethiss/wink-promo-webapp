@@ -1,6 +1,6 @@
-import { IFilm } from "@/interfaces";
+import { Movie } from "@/interfaces";
 
-export const data: IFilm[] = [
+export const data: Movie[] = [
   {
     title: "День курка",
     year: 2019,

@@ -1,4 +1,4 @@
-export interface IFilm {
+export interface Movie {
   cover: string;
   title: string;
   tags: string | string[];

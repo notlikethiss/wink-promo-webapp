@@ -1,9 +1,9 @@
-import type { IFilm } from "@/interfaces";
+import type { Movie } from "@/interfaces";
 import Image from "next/image";
 import type { FC } from "react";
 import styled from "styled-components";
 
-const FilmCard: FC<IFilm> = ({ cover, title, year, tags }) => {
+const FilmCard: FC<Movie> = ({ cover, title, year, tags }) => {
   return (
     <Wrapper>
       <Tag>Трейлер</Tag>
